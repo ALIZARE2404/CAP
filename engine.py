@@ -10,7 +10,7 @@ from pathlib import Path
 import shutil
 import random
 import json
-from model import save_model
+from CAP.model import save_model
 
 def train_step(model:nn.Module,
                dataloader:torch.utils.data.DataLoader,
