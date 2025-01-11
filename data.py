@@ -207,7 +207,7 @@ def create_food25(root:str,
 
 
 def create_dataloader(train_path:str,
-                      val_path:str,
+                      #val_path:str,
                       test_path:str,
                       train_transform:transforms.Compose,
                       test_transform:transforms.Compose,
@@ -239,7 +239,7 @@ def create_dataloader(train_path:str,
                              num_workers=4)
   """
     train_data = datasets.ImageFolder(train_path, transform=train_transform)
-    val_data = datasets.ImageFolder(val_path, transform=test_transform)
+    #val_data = datasets.ImageFolder(val_path, transform=test_transform)
     test_data = datasets.ImageFolder(test_path, transform=test_transform)
 
     # Get class names
@@ -254,13 +254,13 @@ def create_dataloader(train_path:str,
         pin_memory=True,
     )
     # Turn images into data loaders
-    val_dataloader = DataLoader(
-        val_data,
-        batch_size=batch_size,
-        shuffle=False,
-        num_workers=num_workers,
-        pin_memory=True,
-    )
+    #val_dataloader = DataLoader(
+    #    val_data,
+    #    batch_size=batch_size,
+    #    shuffle=False,
+    #    num_workers=num_workers,
+    #    pin_memory=True,
+    #)
 
     test_dataloader = DataLoader(
         test_data,
@@ -270,7 +270,7 @@ def create_dataloader(train_path:str,
         pin_memory=True,
     )
 
-    return train_dataloader,val_dataloader, test_dataloader, class_names
+    return train_dataloader, test_dataloader, class_names
     
 
 

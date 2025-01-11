@@ -221,6 +221,7 @@ def train(model: torch.nn.Module,
           train_dataloader: torch.utils.data.DataLoader,
           val_dataloader: torch.utils.data.DataLoader,
           optimizer: torch.optim.Optimizer,
+          scheduler:torch.optim.lr_scheduler,
           loss_fn: torch.nn.Module,
           epochs: int,
           device: torch.device,
@@ -271,6 +272,7 @@ def train(model: torch.nn.Module,
                                           loss_fn=loss_fn,
                                           optimizer=optimizer,
                                           device=device)
+      scheduler.step()
        # Print out what's happening
       print(
           f"Epoch: {epoch+1} | "
